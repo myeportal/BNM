@@ -13,7 +13,7 @@ import "./ERC2981/IERC2981Royalties.sol";
 
 /// @title NFT Contract to mint news articles as NFTs
 /// @author Lukas Knutti <hello@rootine.ch>
-/// @notice To mint articles as NFTs please head to blocknewsmedia.us
+/// @notice To mint/buy/sell articles as NFTs please head to blocknewsmedia.us
 /// @custom:security-contact hello@rootine.ch
 contract BlockNewsMediaToken is
     ERC721,
@@ -24,7 +24,7 @@ contract BlockNewsMediaToken is
 {
     using Counters for Counters.Counter;
 
-    mapping(uint256 => Item) public Items;
+    mapping(uint256 => Item) public items;
 
     struct Item {
         uint256 id;
@@ -37,12 +37,11 @@ contract BlockNewsMediaToken is
         uint24 amount;
     }
 
-    event tokenMinted(address _from, string _uri);
+    event TokenMinted(address _from, string _uri);
 
-    //TODO: UPDATE THIS TO REAL ADDRESS
     /// @dev address to receive all royalty payments
-    address private constant royaltiesReceiver =
-        0xB02e4cC3E37b088bF38Da82c01Eb42cC10712c81;
+    address private constant ROYALTIES_RECEIVER =
+        0x45b58919A70BFdA15d4bb0A8df752A671a318d7E;
 
     Counters.Counter private _tokenIds;
     RoyaltyInfo private _royalties;
@@ -55,7 +54,7 @@ contract BlockNewsMediaToken is
         _grantRole(PAUSER_ROLE, msg.sender);
 
         /// @dev set royalties to 1.75%
-        _setRoyalties(royaltiesReceiver, 175);
+        _setRoyalties(ROYALTIES_RECEIVER, 175);
     }
 
     function pause() public onlyRole(PAUSER_ROLE) {
@@ -84,9 +83,11 @@ contract BlockNewsMediaToken is
 
         _safeMint(msg.sender, newItemId);
 
-        Items[newItemId] = Item(newItemId, msg.sender, uriOfToken);
+        items[newItemId] = Item(newItemId, msg.sender, uriOfToken);
 
-        emit tokenMinted(msg.sender, uriOfToken);
+        _setTokenURI(newItemId, uriOfToken);
+
+        emit TokenMinted(msg.sender, uriOfToken);
 
         return newItemId;
     }
@@ -99,7 +100,7 @@ contract BlockNewsMediaToken is
             _exists(tokenId),
             "BlockNewsMediaToken: Burn for nonexistent token"
         );
-        delete Items[tokenId];
+        delete items[tokenId];
         burn(tokenId);
         return true;
     }
