@@ -45,15 +45,15 @@
     "absolutePath": "project:/contracts/contracts/ERC2981/IERC2981Royalties.sol",
     "exportedSymbols": {
       "IERC2981Royalties": [
-        3114
+        3623
       ]
     },
-    "id": 3115,
+    "id": 3624,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3100,
+        "id": 3609,
         "literals": [
           "solidity",
           "^",
@@ -61,7 +61,7 @@
           ".2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:17"
+        "src": "32:23:18"
       },
       {
         "abstract": false,
@@ -70,48 +70,48 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 3101,
+          "id": 3610,
           "nodeType": "StructuredDocumentation",
-          "src": "57:89:17",
+          "src": "57:89:18",
           "text": "@title IERC2981Royalties\n @dev Interface for the ERC2981 - Token Royalty standard"
         },
         "fullyImplemented": false,
-        "id": 3114,
+        "id": 3623,
         "linearizedBaseContracts": [
-          3114
+          3623
         ],
         "name": "IERC2981Royalties",
-        "nameLocation": "156:17:17",
+        "nameLocation": "156:17:18",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 3102,
+              "id": 3611,
               "nodeType": "StructuredDocumentation",
-              "src": "290:304:17",
+              "src": "290:304:18",
               "text": "@param _tokenId - the NFT asset queried for royalty information\n @param _value - the sale price of the NFT asset specified by _tokenId\n @return _receiver - address of who should be sent the royalty payment\n @return _royaltyAmount - the royalty payment amount for value sale price"
             },
             "functionSelector": "2a55205a",
-            "id": 3113,
+            "id": 3622,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "royaltyInfo",
-            "nameLocation": "608:11:17",
+            "nameLocation": "608:11:18",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3107,
+              "id": 3616,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3104,
+                  "id": 3613,
                   "mutability": "mutable",
                   "name": "_tokenId",
-                  "nameLocation": "628:8:17",
+                  "nameLocation": "628:8:18",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3113,
-                  "src": "620:16:17",
+                  "scope": 3622,
+                  "src": "620:16:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -119,10 +119,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3103,
+                    "id": 3612,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "620:7:17",
+                    "src": "620:7:18",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -132,13 +132,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3106,
+                  "id": 3615,
                   "mutability": "mutable",
                   "name": "_value",
-                  "nameLocation": "646:6:17",
+                  "nameLocation": "646:6:18",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3113,
-                  "src": "638:14:17",
+                  "scope": 3622,
+                  "src": "638:14:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -146,10 +146,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3105,
+                    "id": 3614,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "638:7:17",
+                    "src": "638:7:18",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -158,21 +158,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "619:34:17"
+              "src": "619:34:18"
             },
             "returnParameters": {
-              "id": 3112,
+              "id": 3621,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3109,
+                  "id": 3618,
                   "mutability": "mutable",
                   "name": "_receiver",
-                  "nameLocation": "709:9:17",
+                  "nameLocation": "709:9:18",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3113,
-                  "src": "701:17:17",
+                  "scope": 3622,
+                  "src": "701:17:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -180,10 +180,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3108,
+                    "id": 3617,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "701:7:17",
+                    "src": "701:7:18",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -194,13 +194,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3111,
+                  "id": 3620,
                   "mutability": "mutable",
                   "name": "_royaltyAmount",
-                  "nameLocation": "728:14:17",
+                  "nameLocation": "728:14:18",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3113,
-                  "src": "720:22:17",
+                  "scope": 3622,
+                  "src": "720:22:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -208,10 +208,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3110,
+                    "id": 3619,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "720:7:17",
+                    "src": "720:7:18",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -220,21 +220,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "700:43:17"
+              "src": "700:43:18"
             },
-            "scope": 3114,
-            "src": "599:145:17",
+            "scope": 3623,
+            "src": "599:145:18",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 3115,
-        "src": "146:600:17",
+        "scope": 3624,
+        "src": "146:600:18",
         "usedErrors": []
       }
     ],
-    "src": "32:715:17"
+    "src": "32:715:18"
   },
   "compiler": {
     "name": "solc",
@@ -242,7 +242,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-21T14:54:51.427Z",
+  "updatedAt": "2022-06-28T00:00:32.088Z",
   "devdoc": {
     "details": "Interface for the ERC2981 - Token Royalty standard",
     "kind": "dev",

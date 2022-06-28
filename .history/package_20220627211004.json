@@ -1,0 +1,34 @@
+{
+    "name": "block-news-media",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next flex-start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@ant-design/icons": "^4.7.0",
+        "@openzeppelin/contracts": "^4.4.1",
+        "@openzeppelin/truffle-upgrades": "^1.15.0",
+        "@truffle/hdwallet-provider": "^2.0.0",
+        "@walletconnect/web3-provider": "^1.7.0",
+        "antd": "^4.17.3",
+        "axios": "^0.25.0",
+        "babel-plugin-inline-import-data-uri": "^1.0.1",
+        "dotenv": "^16.0.1",
+        "moment": "^2.29.1",
+        "moralis": "^0.0.176",
+        "next": "12.0.7",
+        "react": "17.0.2",
+        "react-blockies": "^1.4.1",
+        "react-dom": "17.0.2",
+        "react-moralis": "^1.3.1",
+        "truffle": "^5.5.18",
+        "web3uikit": "^0.1.161"
+    },
+    "devDependencies": {
+        "eslint": "7",
+        "eslint-config-next": "12.0.7"
+    }
+}
