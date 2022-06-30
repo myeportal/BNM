@@ -81,7 +81,7 @@ const { TextArea } = Input;
 const { Option } = Select;
 const { Text } = Typography;
 
-export default function mintArticle() {
+export default function MintArticle() {
     const {
         Moralis,
         isWeb3Enabled,
@@ -128,7 +128,7 @@ export default function mintArticle() {
                 content: (
                     <div>
                         <p>
-                            Note: Check the "Feed" to see your post!
+                            Note: Check the Feed to see your post!
                         </p>
                         <Image
                             width={270}

@@ -40,7 +40,7 @@ const styles = {
     },
 };
 
-const myNfts = () => {
+const MyNfts = () => {
     const {
         Moralis,
         chainId,
@@ -163,7 +163,7 @@ const myNfts = () => {
                                 <Card
                                     hoverable
                                     actions={[
-                                        <Tooltip title="View On Blockexplorer">
+                                        <Tooltip title="View On Blockexplorer" key={""}>
                                             <FileSearchOutlined
                                                 onClick={() =>
                                                     window.open(
@@ -183,7 +183,7 @@ const myNfts = () => {
                                                 }}
                                             />
                                         </Tooltip>,
-                                        <Tooltip title={"Buy NFA"}>
+                                        <Tooltip title={"Buy NFA"} key={""}>
                                             <ShoppingCartOutlined
                                                 onClick={async () => {
                                                     await handleSellClick(nft);
@@ -228,4 +228,4 @@ const myNfts = () => {
     );
 };
 
-export default myNfts;
+export default MyNfts;

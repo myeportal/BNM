@@ -7,7 +7,7 @@ const appId = process.env.NEXT_PUBLIC_MORALIS_APPLICATION_ID;
 const serverUrl = process.env.NEXT_PUBLIC_MORALIS_SERVER_URL;
 const moralisSecert = process.env.NEXT_PUBLIC_MORALIS_SECERT;
 
-const settings = () => {
+const Settings = () => {
 
     const [pfps, setPfps] = useState([]);
     const [selectedPFP, setSelectedPFP] = useState();
@@ -152,4 +152,4 @@ const settings = () => {
     )
 }
 
-export default settings
+export default Settings

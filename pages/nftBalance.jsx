@@ -231,7 +231,7 @@ function NFTBalance() {
   return (
     <>
       <Head>
-        <title>Block News Media - Your NFA's</title>
+        <title>Block News Media - Your NFAs</title>
         <meta name="description" content="Block News Media - Mint" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -254,7 +254,7 @@ function NFTBalance() {
                 <Card
                   hoverable
                   actions={[
-                    <Tooltip title="View On Blockexplorer">
+                    <Tooltip title="View On Blockexplorer" key={""}>
                       <FileSearchOutlined
                         onClick={() =>
                           window.open(
@@ -284,7 +284,7 @@ function NFTBalance() {
                         }}
                       />
                     </Tooltip>,
-                    <Tooltip title="List NFA for sale">
+                    <Tooltip title="List NFA for sale" key={""}>
                       <ShoppingCartOutlined
                         onClick={() => handleSellClick(nft)}
                         style={{
@@ -344,11 +344,11 @@ function NFTBalance() {
         onOk={() => list(nftToSend, price)}
         okText="List"
         footer={[
-          <Button onClick={() => setVisibility(false)}>Cancel</Button>,
-          <Button onClick={() => approveAll(nftToSend)} type="primary">
+          <Button onClick={() => setVisibility(false)} key={""}>Cancel</Button>,
+          <Button onClick={() => approveAll(nftToSend)} type="primary" key={""}>
             Approve
           </Button>,
-          <Button onClick={() => list(nftToSend, price)} type="primary">
+          <Button onClick={() => list(nftToSend, price)} type="primary" key={""}>
             List
           </Button>,
         ]}

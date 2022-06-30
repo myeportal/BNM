@@ -8,6 +8,7 @@ import Account from "../components/Account/Account.jsx";
 import MenuItems from "../components/MenuItems.jsx";
 // import Chains from "../components/Chains/Chains.jsx";
 import TokenPrice from "../components/TokenPrice.jsx";
+import Image from "next/image";
 
 const { Header, Content, Footer } = Layout;
 
@@ -67,21 +68,21 @@ const LightApp = ({ component: Component, pageProps }) => {
   const { pathname } = useRouter();
 
   const pathNameToText = (pathname) => {
-    if (pathname === "/mintArticle") {
+    if (pathname === "/MintArticle") {
       return "Mint Article";
-    } else if (pathname === "/mintAudio") {
+    } else if (pathname === "/MintAudio") {
       return "Mint Audio";
-    } else if (pathname === "/mintVideo") {
+    } else if (pathname === "/MintVideo") {
       return "Mint Video";
-    } else if (pathname === "/nftBalance") {
+    } else if (pathname === "/NftBalance") {
       return "My NFAs";
-    } else if (pathname === "/marketplace") {
+    } else if (pathname === "/Marketplace") {
       return "Marketplace";
-    } else if (pathname === "/feed") {
+    } else if (pathname === "/Feed") {
       return "Feed";
-    } else if (pathname === "/profile") {
+    } else if (pathname === "/Profile") {
       return "Profile";
-    } else if (pathname === "/settings") {
+    } else if (pathname === "/Settings") {
       return "Settings";
     }
   };

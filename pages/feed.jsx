@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 import Rightbar from "../components/Rightbar";
 import PostInFeed from "../components/PostInFeed";
 
-const feed = () => {
+const Feed = () => {
   
   return (
     <>
@@ -24,4 +24,4 @@ const feed = () => {
   );
 };
 
-export default feed;
+export default Feed;

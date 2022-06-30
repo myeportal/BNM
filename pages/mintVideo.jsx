@@ -82,7 +82,7 @@ moralis.serverURL = process.env.NEXT_PUBLIC_MORALIS_SERVER_URL;
 const { Option } = Select;
 const { Text } = Typography;
 
-export default function mintAudio() {
+export default function MintVideo() {
 
     const {
         Moralis,
@@ -132,7 +132,7 @@ export default function mintAudio() {
                 content: (
                     <div>
                         <p>
-                            Note: Check the "Feed" to see your post!
+                            Note: Check the Feed to see your post!
                         </p>
                         <Image
                             width={270}

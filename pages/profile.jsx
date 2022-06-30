@@ -7,7 +7,7 @@ import moralis from "moralis";
 moralis.initialize(process.env.NEXT_PUBLIC_MORALIS_APPLICATION_ID);
 moralis.serverURL = process.env.NEXT_PUBLIC_MORALIS_SERVER_URL;
 
-const profile = () => {
+const Profile = () => {
   const [banner, setBanner] = useState();
   const [pfp, setPfp] = useState();
   const user = moralis.User.current();
@@ -30,7 +30,7 @@ const profile = () => {
             <div className="profileName">{user?.attributes.username.slice(0, 15)}</div>
             <div className="profileWallet">{`${user?.attributes.ethAddress.slice(0, 4)}...
             ${user?.attributes.ethAddress.slice(38)}`}</div>
-            <Link href="/settings">
+            <Link href="/Settings">
                 <a className="profileEdit">Edit Profile</a>
             </Link>
             <div className="profileBio">
@@ -50,4 +50,4 @@ const profile = () => {
   )
 }
 
-export default profile
+export default Profile

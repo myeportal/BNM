@@ -1,33 +1,34 @@
 import { Button, Dropdown, Menu, Space } from "antd";
 import { DoubleLeftOutlined, DownOutlined } from '@ant-design/icons';
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 function MenuItems({ isDark, isAuthenticated }) {
   const { pathname } = useRouter();
 
   const menuItems = [
     {
-      key: "/mintArticle",
+      key: "/MintArticle",
       label: (
-        <a href="/mintArticle">
+        <Link href="/MintArticle">
           <a>Article</a>
-        </a>
+        </Link>
       )
     },
     {
-      key: "/mintAudio",
+      key: "/MintAudio",
       label: (
-        <a href="/mintAudio">
+        <Link href="/MintAudio">
           <a>Audio</a>
-        </a>
+        </Link>
       )
     },
     {
-      key: "mintVideo",
+      key: "MintVideo",
       label: (
-        <a href="/mintVideo">
+        <Link href="/MintVideo">
           <a>Video</a>
-        </a>
+        </Link>
       )
     }
   ]
@@ -72,20 +73,20 @@ function MenuItems({ isDark, isAuthenticated }) {
           </Link>
         </Menu.Item>
       )} */}
-      <Menu.Item key="/feed">
-        <a href="/feed">
+      <Menu.Item key="/Feed">
+        <Link href="/Feed">
           <a>📰 Feed</a>
-        </a>
+        </Link>
       </Menu.Item>
-      <Menu.Item key="/marketplace">
-        <a href="/marketplace">
+      <Menu.Item key="/Marketplace">
+        <Link href="/Marketplace">
           <a>🛍 Marketplace</a>
-        </a>
+        </Link>
       </Menu.Item>
-      <Menu.Item key="/profile">
-        <a href="/profile">
+      <Menu.Item key="/Profile">
+        <Link href="/Profile">
           <a>😀 Profile</a>
-        </a>
+        </Link>
       </Menu.Item>
     </Menu>
   );
