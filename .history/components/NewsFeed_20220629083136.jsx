@@ -4,7 +4,7 @@ import PostInFeed from './PostinFeed';
 const NewsFeed = () => {
   return (
     <div>
-        <PostInFeed profile={false} />
+        <PostInFeed />
     </div>
   )
 }

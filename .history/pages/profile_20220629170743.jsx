@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Link from "next/link";
 import { defaultImgs } from "../public/defaultImgs";
-import PostInFeed from "../components/PostinFeed";
+import PostInProfile from "../components/PostinProfile";
 import moralis from "moralis";
 
 moralis.initialize(process.env.NEXT_PUBLIC_MORALIS_APPLICATION_ID);
 moralis.serverURL = process.env.NEXT_PUBLIC_MORALIS_SERVER_URL;
 
-const ProfileContent = () => {
+const profile = () => {
   const [banner, setBanner] = useState();
   const [pfp, setPfp] = useState();
   const user = moralis.User.current();
+  // console.log(user)
 
   useEffect(() => {
     if(!user) return null;
@@ -20,9 +21,11 @@ const ProfileContent = () => {
 
   return (
     <>
-      <div className="mainContent">
-          <img className="profileBanner" src={banner ? banner : defaultImgs[1]}></img>
-          <div className="pfpContainer">
+    <div className="page">
+      <div className="mainWindow">
+          <div className="mainContent">
+            <img className="profileBanner" src={banner ? banner : defaultImgs[1]}></img>
+            <div className="pfpContainer">
             <img className="profilePFP" src={pfp ? pfp : defaultImgs[0]}></img>
             <div className="profileName">{user?.attributes.username.slice(0, 15)}</div>
             <div className="profileWallet">{`${user?.attributes.ethAddress.slice(0, 4)}...
@@ -40,9 +43,11 @@ const ProfileContent = () => {
             </div>
           </div> 
       </div>
-      <PostInFeed profile={true}></PostInFeed>
+      <PostInProfile profile={user.attributes.ethAddress}></PostInProfile>
+      </div>
+    </div>
     </>
   )
 }
 
-export default ProfileContent
+export default profile
