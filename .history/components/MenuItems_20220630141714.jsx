@@ -16,17 +16,17 @@ function MenuItems({ isDark, isAuthenticated }) {
       )
     },
     {
-      key: "/mintAudio",
+      key: "/MintAudio",
       label: (
-        <Link href="/mintAudio">
+        <Link href="/MintAudio">
           <a>Audio</a>
         </Link>
       )
     },
     {
-      key: "mintVideo",
+      key: "MintVideo",
       label: (
-        <Link href="/mintVideo">
+        <Link href="/MintVideo">
           <a>Video</a>
         </Link>
       )

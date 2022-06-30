@@ -24,9 +24,9 @@ function MenuItems({ isDark, isAuthenticated }) {
       )
     },
     {
-      key: "mintVideo",
+      key: "MintVideo",
       label: (
-        <Link href="/mintVideo">
+        <Link href="/MintVideo">
           <a>Video</a>
         </Link>
       )

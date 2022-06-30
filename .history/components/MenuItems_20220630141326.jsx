@@ -8,25 +8,25 @@ function MenuItems({ isDark, isAuthenticated }) {
 
   const menuItems = [
     {
-      key: "/mintArticle",
+      key: "/MintArticle",
       label: (
-        <Link href="/mintArticle">
+        <Link href="/MintArticle">
           <a>Article</a>
         </Link>
       )
     },
     {
-      key: "/mintAudio",
+      key: "/MintAudio",
       label: (
-        <Link href="/mintAudio">
+        <Link href="/MintAudio">
           <a>Audio</a>
         </Link>
       )
     },
     {
-      key: "mintVideo",
+      key: "MintVideo",
       label: (
-        <Link href="/mintVideo">
+        <Link href="/MintVideo">
           <a>Video</a>
         </Link>
       )
@@ -78,13 +78,13 @@ function MenuItems({ isDark, isAuthenticated }) {
           <a>📰 Feed</a>
         </Link>
       </Menu.Item>
-      <Menu.Item key="/marketplace">
-        <Link href="/marketplace">
+      <Menu.Item key="/Marketplace">
+        <Link href="/Marketplace">
           <a>🛍 Marketplace</a>
         </Link>
       </Menu.Item>
-      <Menu.Item key="/profile">
-        <Link href="/profile">
+      <Menu.Item key="/Profile">
+        <Link href="/Profile">
           <a>😀 Profile</a>
         </Link>
       </Menu.Item>

@@ -30,7 +30,7 @@ const Profile = () => {
             <div className="profileName">{user?.attributes.username.slice(0, 15)}</div>
             <div className="profileWallet">{`${user?.attributes.ethAddress.slice(0, 4)}...
             ${user?.attributes.ethAddress.slice(38)}`}</div>
-            <Link href="/settings">
+            <Link href="/Settings">
                 <a className="profileEdit">Edit Profile</a>
             </Link>
             <div className="profileBio">

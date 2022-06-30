@@ -68,21 +68,21 @@ const LightApp = ({ component: Component, pageProps }) => {
   const { pathname } = useRouter();
 
   const pathNameToText = (pathname) => {
-    if (pathname === "/mintArticle") {
+    if (pathname === "/MintArticle") {
       return "Mint Article";
-    } else if (pathname === "/mintAudio") {
+    } else if (pathname === "/MintAudio") {
       return "Mint Audio";
-    } else if (pathname === "/mintVideo") {
+    } else if (pathname === "/MintVideo") {
       return "Mint Video";
-    } else if (pathname === "/nftBalance") {
-      return "My NFTs";
-    } else if (pathname === "/marketplace") {
+    } else if (pathname === "/NftBalance") {
+      return "My NFAs";
+    } else if (pathname === "/Marketplace") {
       return "Marketplace";
     } else if (pathname === "/feed") {
-      return "Feed";
-    } else if (pathname === "/profile") {
+      return "feed";
+    } else if (pathname === "/Profile") {
       return "Profile";
-    } else if (pathname === "/settings") {
+    } else if (pathname === "/Settings") {
       return "Settings";
     }
   };
