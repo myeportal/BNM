@@ -1,0 +1,23 @@
+.container {
+    padding: 0 2rem;
+}
+
+.main {
+    padding: 4rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: '#000000';
+}
+
+.title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+}
+
+.title {
+    text-align: center;
+}
