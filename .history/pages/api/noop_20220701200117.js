@@ -1,15 +1,16 @@
-export default async function handler(req, res) {
-    res.status(200).end("noop");
-}
+// export default async function handler(req, res) {
+//     res.status(200).end("noop");
+// }
 
-export const config = {
-    api: {
-        bodyParser: {
-            sizeLimit: "50mb",
-        },
-    },
-};
+// export const config = {
+//     api: {
+//         bodyParser: {
+//             sizeLimit: "50mb",
+//         },
+//     },
+// };
 
+import { NestFactory } from '@nestjs/core';
 import * as bodyParser from 'body-parser';
 
 // import { AppModule } from './app.module';
