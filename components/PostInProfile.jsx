@@ -96,7 +96,7 @@ const PostInProfile = ({profile}) => {
                       fontSize: "16px",
                       fontWeight: "500",
                     }}
-                    href={`https://opensea.io/assets/polygon/${CONTRACT_ADDRESS}/${e.attributes.tokenId}`} 
+                    href={`https://opensea.io/assets/matic/${CONTRACT_ADDRESS}/${e.attributes.tokenId}`} 
                     target="_blank"
                     rel="noreferrer"
                       >
