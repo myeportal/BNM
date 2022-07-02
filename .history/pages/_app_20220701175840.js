@@ -69,9 +69,9 @@ const LightApp = ({ component: Component, pageProps }) => {
   async function checkChain() {
     const web3 = await Moralis.Web3.enableWeb3()
     const chain = web3.currentProvider;
-    // console.log(chain.chainId)
+    console.log(chain.chainId)
     if (chain.chainId != "0x89") { 
-      alert("Please switch to Polygon network!") 
+      window.alert ("Please switch to Polygon network!") 
     }
   }
   checkChain();
