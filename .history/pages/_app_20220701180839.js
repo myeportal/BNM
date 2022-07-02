@@ -66,15 +66,15 @@ const LightApp = ({ component: Component, pageProps }) => {
   const { pathname } = useRouter();
   const { Moralis } = useMoralis();
 
-  // async function checkChain() {
-  //   const web3 = await Moralis.Web3.enableWeb3()
-  //   const chain = web3.currentProvider;
-  //   console.log(chain.chainId)
-  //   if (chain.chainId != "0x89") { 
-  //     alert("Please switch to Polygon network!") 
-  //   }
-  // }
-  // checkChain();
+  async function checkChain() {
+    const web3 = await Moralis.Web3.enableWeb3()
+    // const chain = web3.currentProvider;
+    // console.log(chain.chainId)
+    // if (chain.chainId != "0x89") { 
+    //   alert("Please switch to Polygon network!") 
+    // }
+  }
+  checkChain();
 
   const pathNameToText = (pathname) => {
     if (pathname === "/mintArticle") {
