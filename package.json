@@ -16,6 +16,7 @@
         "antd": "^4.17.3",
         "axios": "^0.25.0",
         "babel-plugin-inline-import-data-uri": "^1.0.1",
+        "body-parser": "^1.20.0",
         "dotenv": "^16.0.1",
         "feed": "^4.2.2",
         "magic-sdk": "^8.1.1",

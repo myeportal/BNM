@@ -5,9 +5,8 @@ export default async function handler(req, res) {
 export const config = {
     api: {
         bodyParser: {
-            sizeLimit: 1000000000,
+            sizeLimit: "50mb",
         },
-        abortOnLimit: true
     },
 };
 
