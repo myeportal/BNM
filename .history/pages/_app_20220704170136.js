@@ -98,6 +98,13 @@ const LightApp = ({ component: Component, pageProps }) => {
     }
   };
 
+  if(error) {
+    notification.error({
+        message: "Error",
+        description: "Please try re-uploading."
+    })
+  }
+
   return (
     <Layout style={{ backgroundColor: '#ffffff', height: "100vh", overflow: "auto" }}>
       <Header style={styles.header}>

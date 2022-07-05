@@ -73,8 +73,8 @@ const LightApp = ({ component: Component, pageProps }) => {
       const chain = web3.currentProvider;
       const chainId = chain.chainId;
       console.log(chainId)
-      if (chainId !== "0x89") { 
-        alert("Please switch to Polygon network!")
+      if (chainId !== "0x4") { 
+        alert("Please switch to Rinkeby network!")
         window.location.reload();
         return 
       }
