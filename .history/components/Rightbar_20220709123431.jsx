@@ -7,14 +7,14 @@ const Rightbar = () => {
   let parser = new Parser();
 
   (async () => {
-    let feed = await parser.parseURL("https://rss.app/feeds/g9tevEQUkRznLvwH.xml");
+    let feed = await parser.parseURL("https://rss.app/feeds/7wGvBhF4Lxqp9ucm.xml");
     // console.log(feed.title);
     feed.items.forEach(item => {
       // console.log(item.title + ":" + item.link);
     });
   })();
   
-  const url = "https://rss.app/feeds/g9tevEQUkRznLvwH.xml";
+  const url = "https://rss.app/feeds/7wGvBhF4Lxqp9ucm.xml";
 
   useEffect(() => {
     async function getNews() {
