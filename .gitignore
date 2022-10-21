@@ -4,3 +4,6 @@ node_modules
 .next
 .env.local
 contracts/build.env
+.env
+.yarn
+.history
