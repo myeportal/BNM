@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { defaultImgs } from "../public/defaultImgs";
-import { useMoralis, useMoralisWeb3Api } from "react-moralis";
+import { useMoralis } from "react-moralis";
 import moralis from "moralis";
 import { CONTRACT_ADDRESS } from "../consts/vars";
 import { Button } from 'antd';
+// import { hre } from "hardhat";
+import { ethers } from "ethers";
 
 const PostInProfile = ({profile}) => {
   const { Moralis } = useMoralis();
@@ -11,7 +13,7 @@ const PostInProfile = ({profile}) => {
   const [pfp, setPfp] = useState();
   const [username, setUsername] = useState();
   const user = moralis.User.current();
-
+  
   useEffect(() => {
     if(!user) return null;
     setPfp(user.get("pfp"))
@@ -29,7 +31,7 @@ const PostInProfile = ({profile}) => {
           query.equalTo("postAcc", account);
         }
         const results = await query.find();
-        console.log(results)
+        // console.log(results)
         setPostArr(results);
       } catch (error) {
         console.error(error);
@@ -39,6 +41,13 @@ const PostInProfile = ({profile}) => {
     
   }, []);
   
+  const deployContract = async () => {
+    
+    // const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
+    // const tx = await contract.deployContract();
+    // await tx.wait();
+    // console.log("Contract deployed to:", contract.address);
+  };
 
   return (
     <>
@@ -101,6 +110,26 @@ const PostInProfile = ({profile}) => {
                     rel="noreferrer"
                       >
                      Sell on OpenSea 
+                  </Button>
+                </div>
+              </div>
+              <div className="interactions">
+                <div className="interactionsLink">
+                  <Button
+                    size="large"
+                    type="primary"
+                    style={{
+                      width: "100%",
+                      marginTop: "10px",
+                      borderRadius: "0.5rem",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                    }}
+                    onClick={() => {
+                      deployContract();
+                    }}
+                      >
+                     Fractionalize NFT
                   </Button>
                 </div>
               </div>

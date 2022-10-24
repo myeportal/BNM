@@ -73,11 +73,17 @@ const LightApp = ({ component: Component, pageProps }) => {
       const chain = web3.currentProvider;
       const chainId = chain.chainId;
       console.log(chainId)
-      if (chainId !== "0x89") { 
-        alert("Please switch to Polygon network!")
+      if( chainId !== "0x5" ) {
+        alert("Please switch to Goerli Testnet")
         window.location.reload();
-        return 
+        return;
       }
+      // SWITCH BACK ONCE COMPLETED
+      // if (chainId !== "0x89") { 
+      //   alert("Please switch to Polygon network!")
+      //   window.location.reload();
+      //   return 
+      // }
     }
     checkChain();
   },[])
