@@ -25,6 +25,7 @@
         "magic-sdk": "^8.1.1",
         "moment": "^2.29.1",
         "moralis": "^0.0.176",
+        "moralis-v1": "^1.11.0",
         "next": "12.0.7",
         "react": "17.0.2",
         "react-blockies": "^1.4.1",
@@ -32,6 +33,7 @@
         "react-moralis": "^0.3.11",
         "require": "^2.4.20",
         "rss-parser": "^3.12.0",
+        "web3": "^1.8.0",
         "web3uikit": "^0.1.161"
     },
     "devDependencies": {

@@ -8,6 +8,7 @@ import Account from "../components/Account/Account.jsx";
 import MenuItems from "../components/MenuItems.jsx";
 import TokenPrice from "../components/TokenPrice.jsx";
 import { useEffect } from "react";
+import { CHAIN, CHAIN_ID } from "../consts/vars";
 
 const { Header, Content } = Layout;
 
@@ -73,17 +74,11 @@ const LightApp = ({ component: Component, pageProps }) => {
       const chain = web3.currentProvider;
       const chainId = chain.chainId;
       console.log(chainId)
-      if( chainId !== "0x5" ) {
-        alert("Please switch to Goerli Testnet")
+      if( chainId !== CHAIN_ID ) {
+        alert(`Please switch to ${CHAIN} network`)
         window.location.reload();
         return;
       }
-      // SWITCH BACK ONCE COMPLETED
-      // if (chainId !== "0x89") { 
-      //   alert("Please switch to Polygon network!")
-      //   window.location.reload();
-      //   return 
-      // }
     }
     checkChain();
   },[])

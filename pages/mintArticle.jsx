@@ -15,10 +15,11 @@ import {
     useMoralisFile,
     useWeb3ExecuteFunction,
 } from "react-moralis";
-import { CONTRACT_ADDRESS } from "../consts/vars";
+import { CHAIN, CONTRACT_ADDRESS } from "../consts/vars";
 import { BLOCK_NEWS_MEDIA_CONTRACT_ABI } from "../consts/contractAbis";
 import useWindowDimensions from "../util/useWindowDimensions";
 import moralis from "moralis";
+import axios from 'axios';
 
 const styles = {
     title: {
@@ -98,6 +99,7 @@ export default function MintArticle() {
     const [descriptionText, setDescriptionText] = useState("");
     const [titleText, setTitleText] = useState("");
     const [categoryName, setCategoryName] = useState("");
+    const [tokenId, setTokenId] = useState(0);
 
     const { width } = useWindowDimensions();
     const isMobile = width < 700;
@@ -148,6 +150,7 @@ export default function MintArticle() {
                     setTitleText("");
                     setDescriptionText("");
                     setCategoryName("");
+                    window.location.reload();
                 },
             });
         }
@@ -174,6 +177,37 @@ export default function MintArticle() {
         }
     }, [executeContractError]);
 
+    useEffect(() => {
+        const options = {
+            method: 'GET',
+            url: `https://deep-index.moralis.io/api/v2/nft/${CONTRACT_ADDRESS}`,
+            params: {chain: CHAIN, format: 'decimal'},
+            headers: {accept: 'application/json', 'X-API-Key': process.env.NEXT_PUBLIC_X_API_KEY}
+          };
+          
+          axios
+            .request(options)
+            .then(function (response) {
+                // console.log(response.data.total);
+                setTokenId(response.data.total + 1);
+            })
+            .catch(function (error) {
+              console.error(error);
+            },
+        );
+        
+    }, []);
+
+    async function checkTokenIdExists() {
+        const Posts = Moralis.Object.extend("Posts");
+        const query = new Moralis.Query(Posts);
+        query.equalTo("tokenId", tokenId);
+        const results = await query.find();
+        if (results.length > 0) {
+            setTokenId(tokenId + 1);
+        }
+    }
+    
     const uploadNftToIpfsAndMintToken = async () => {
         if(!isInputValid) {
             window.alert("Not all fields filled in! Please fill in all fields and then re-submit.")
@@ -219,15 +253,13 @@ export default function MintArticle() {
                 }
             );
 
+            await checkTokenIdExists();
+
             async function saveArticle() {
 
                 if(!descriptionText) return;
         
-                const Posts = moralis.Object.extend("Posts");
-                const query = new Moralis.Query(Posts);
-                const results = await query.find()
-                const tokenId = results.length + 1;
-        
+                const Posts = Moralis.Object.extend("Posts");
                 const newPost = new Posts();
                        
                 newPost.set("postDescriptionText", descriptionText);
