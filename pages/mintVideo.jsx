@@ -15,10 +15,11 @@ import {
     useMoralisFile,
     useWeb3ExecuteFunction,
 } from "react-moralis";
-import { CONTRACT_ADDRESS } from "../consts/vars";
+import { CHAIN, CONTRACT_ADDRESS } from "../consts/vars";
 import { BLOCK_NEWS_MEDIA_CONTRACT_ABI } from "../consts/contractAbis";
 import useWindowDimensions from "../util/useWindowDimensions";
 import moralis from "moralis";
+import axios from 'axios';
 
 const styles = {
     title: {
@@ -104,6 +105,7 @@ export default function MintVideo() {
     const [uploadedVideoUri, setUploadedVideoUri] = useState(null);
     const [titleText, setTitleText] = useState("");
     const [categoryName, setCategoryName] = useState("");
+    const [tokenId, setTokenId] = useState(0);
 
     const { width } = useWindowDimensions();
     const isMobile = width < 700;
@@ -150,6 +152,7 @@ export default function MintVideo() {
                 onOk() {
                     setTitleText("");
                     setCategoryName("");
+                    window.location.reload();
                 },
             });
         }
@@ -175,6 +178,36 @@ export default function MintVideo() {
             });
         }
     }, [executeContractError]);
+
+    useEffect(() => {
+        const options = {
+            method: 'GET',
+            url: `https://deep-index.moralis.io/api/v2/nft/${CONTRACT_ADDRESS}`,
+            params: {chain: CHAIN, format: 'decimal'},
+            headers: {accept: 'application/json', 'X-API-Key': process.env.NEXT_PUBLIC_X_API_KEY}
+          };
+          
+          axios
+            .request(options)
+            .then(function (response) {
+                // console.log(response.data.total);
+                setTokenId(response.data.total + 1);
+            })
+            .catch(function (error) {
+              console.error(error);
+            },
+        );
+    }, []);
+
+    async function checkTokenIdExists() {
+        const Posts = Moralis.Object.extend("Posts");
+        const query = new Moralis.Query(Posts);
+        query.equalTo("tokenId", tokenId);
+        const results = await query.find();
+        if (results.length > 0) {
+            setTokenId(tokenId + 1);
+        }
+    }
 
     const uploadNftToIpfsAndMintToken = async () => {
             if(!isInputValid) {
@@ -236,15 +269,13 @@ export default function MintVideo() {
                 }
             );
 
+            await checkTokenIdExists();
+
             async function saveVideo() {
 
                 if(!vid) return;
         
                 const Posts = moralis.Object.extend("Posts");
-                const query = new Moralis.Query(Posts);
-                const results = await query.find()
-                const tokenId = results.length + 1; 
-        
                 const newPost = new Posts();
                        
                 newPost.set("postImg", img);

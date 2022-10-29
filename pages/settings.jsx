@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Input } from "web3uikit";
 import { defaultImgs } from "../public/defaultImgs";
 import { useMoralis, useMoralisWeb3Api } from "react-moralis";
+import { CHAIN } from '../consts/vars';
 
 const appId = process.env.NEXT_PUBLIC_MORALIS_APPLICATION_ID;
 const serverUrl = process.env.NEXT_PUBLIC_MORALIS_SERVER_URL;
@@ -28,7 +29,7 @@ const Settings = () => {
 
         const fetchNFTs = async () => {
             const options = {
-                chain: "polygon",
+                chain: CHAIN,
                 address: account
             }
             await Moralis.start({ serverUrl, appId, moralisSecert });
