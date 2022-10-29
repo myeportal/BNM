@@ -3,12 +3,13 @@ pragma solidity 0.8.17;
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 import './FractionToken.sol';
 
 /// @title Contract to store NFTs for fractionalization
 /// @author Bryce Palichuk 
 /// @notice Contract that stores NFTs used in fractionalization for the blocknewsmedia.us site
-contract Storage is IERC721Receiver {
+contract Storage is IERC721Receiver, Ownable {
     mapping(address => mapping(uint => bool)) isNftDeposited;
     mapping(address => mapping(uint => address)) nftOwner;
     mapping(address => mapping(uint => bool)) isNftChangingOwner;
@@ -39,9 +40,9 @@ contract Storage is IERC721Receiver {
     /// @notice Called from owner address of NFT wanting to fractionalize
     /// @param _nftAddress - BNMV2 contract address 
     /// @param _nftId - Id of deposit NFT
-    function depositNft(address _nftAddress, uint256 _nftId) public {
+    function depositNft(address _nftAddress, uint256 _nftId) public payable {
         // this contract must be approved first
-
+        require(msg.value == (100000000000000000 wei), "Please pay 0.1 Matic");
         ERC721 nft = ERC721(_nftAddress);
         nft.safeTransferFrom(msg.sender, address(this), _nftId);
     
@@ -64,10 +65,9 @@ contract Storage is IERC721Receiver {
         string memory _tokenName,
         string memory _tokenTicker,
         uint256 _supply
-        ) public payable {
+        ) public {
         require(isNftDeposited[_nftAddress][_nftId], "This NFT hasn't been deposited yet");
         require(nftOwner[_nftAddress][_nftId] == msg.sender, "You do not own this NFT");
-        require(msg.value == (100000000000000000 wei), "Please pay 0.1 Matic");
         isNftFractionalised[_nftAddress][_nftId] = true;
 
         baseFractionToken FractionToken = new baseFractionToken(_nftAddress,
@@ -108,6 +108,14 @@ contract Storage is IERC721Receiver {
         }
 
         nft.safeTransferFrom(address(this), msg.sender, _nftId);
+    }
+
+    // onlyOwner functions
+    function withdrawFunds() public payable onlyOwner {
+        (bool success, ) = payable(msg.sender).call{
+            value: address(this).balance
+        }("");
+        require(success);
     }
 
     // Getter functions
