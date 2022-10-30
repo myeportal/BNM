@@ -1,7 +1,7 @@
 // V2 contract (Polygon Mainnet)
 export const CHAIN = "Polygon";
 export const CHAIN_ID = "0x89";
-export const CONTRACT_ADDRESS = "0x3b8F7FFE57a2b545e5E65DdceD4484648D291d33";
+export const CONTRACT_ADDRESS = "0x65D4F5fB524A1151B8018020C03D15883184b9f2";
 export const STORAGE_ADDRESS = "0x4af1a4452F4acd9806D257B522b6421cA5cD4698";
 
 // V2 contract (TESTNET Rinkeby, DEPRECATED)
