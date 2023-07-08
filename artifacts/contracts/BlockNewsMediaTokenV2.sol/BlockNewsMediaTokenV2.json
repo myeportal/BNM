@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "BlockNewsMediaTokenV2",
-  "sourceName": "contracts/BlockNewsMediaTokenV2.sol",
+  "contractName": "polymint",
+  "sourceName": "contracts/polymintV1.sol",
   "abi": [
     {
       "inputs": [],
