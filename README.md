@@ -8,6 +8,7 @@ There are two code bases in this project;
 -   Next.js Codebase that is deployed to Vercel
 -   Solidity Smart Contracts
 -   Polymint allows anyone with a web3 wallet and $matic, to mint any content they want, including text/art/music or video.
+-   Polymint can also Fractionalize any of these creatives, essentially tokenizing them for personal value on open market
 
 ### Cloud Code
 
