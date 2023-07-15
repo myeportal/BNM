@@ -1,4 +1,4 @@
-# Block News Media
+# Polymint 
 
 How is this project structured?
 
@@ -7,6 +7,7 @@ There are two code bases in this project;
 -   Cloud Code services that are deployed to the Moralis Platform (this is removed from the V2 but left in codebase incase want to revert back to built-in marketplace)
 -   Next.js Codebase that is deployed to Vercel
 -   Solidity Smart Contracts
+-   Polymint allows anyone with a web3 wallet and $matic, to mint any content they want, including text/art/music or video.
 
 ### Cloud Code
 
