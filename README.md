@@ -34,6 +34,10 @@ yarn run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Update for Xumm web3 connections, enabling payment for advertising on dot com newsfeed
+8/31/2023 by 3rd pty dev
+Pull request merged by owner
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
