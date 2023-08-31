@@ -17,4 +17,10 @@ export const connectors = [
         connectorId: "injected",
         priority: 3,
     },
+    {
+        title: "Xumm Wallet",
+        icon: "/WalletIcons/XummWallet.jpg",
+        connectorId: "xumm",
+        priority: 4,
+    },
 ];
