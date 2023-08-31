@@ -34,7 +34,8 @@
         "require": "^2.4.20",
         "rss-parser": "^3.12.0",
         "web3": "^1.8.0",
-        "web3uikit": "^0.1.161"
+        "web3uikit": "^0.1.161",
+        "xumm": "^1.6.1"
     },
     "devDependencies": {
         "@nomicfoundation/hardhat-chai-matchers": "^1.0.4",

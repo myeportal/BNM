@@ -2,12 +2,16 @@ import { useMoralis } from "react-moralis";
 import { getEllipsisTxt } from "../../helpers/formatters";
 import Blockie from "../Blockie";
 import { Button, Card, Modal } from "antd";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Address from "../Address/Address";
 import { SelectOutlined } from "@ant-design/icons";
 import { getExplorer } from "../../helpers/networks";
 import Text from "antd/lib/typography/Text";
 import { connectors } from "./config";
+
+import { Xumm } from 'xumm';
+
+const xumm = new Xumm(process.env.NEXT_PUBLIC_XRP_APP_KEY, process.env.NEXT_PUBLIC_XRP_APP_SECRET);
 
 const styles = {
     account: {
@@ -50,7 +54,49 @@ function Account() {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isAuthModalVisible, setIsAuthModalVisible] = useState(false);
 
-    if (!isAuthenticated) {
+    // const getAddress = () => {
+    //     const data = window.localStorage.getItem("XummPkceJwt");
+    //     if (data) {
+    //         const json = JSON.parse(data);
+    //         return json.me.account;
+    //     }
+    //     return '';
+    // }
+
+    const [xummAddress, setXummAddress] = useState('');
+
+    useEffect(() => {
+        const handleSuccess = async () => {
+            xumm.user.account.then((addr) => {
+                if (addr) {
+                    alert('Xumm Connected');
+                    xumm.runtime.xapp = true;
+                } else {
+                    xumm.runtime.xapp = false;
+                }
+                setXummAddress(addr ?? '');
+            });
+        };
+
+        const handleLogout = async () => {
+            alert('Xumm Disonnected');
+            setXummAddress('');
+        }
+
+        xumm.on("error", (e) => {
+            console.log('error', e);
+        });
+
+        xumm.on('success', handleSuccess);
+        xumm.on('logout', handleLogout);
+
+        return () => {
+            xumm.off('success', handleSuccess);
+            xumm.off('logout', handleLogout);
+        };
+    }, []);
+
+    if (!isAuthenticated && xummAddress == '') {
         return (
             <>
                 <div
@@ -95,10 +141,14 @@ function Account() {
                                 key={key}
                                 onClick={async () => {
                                     try {
-                                        await authenticate({
-                                            provider: connectorId,
-                                            signingMessage: "Login to BNM",
-                                        });
+                                        if (connectorId == "xumm") {
+                                            xumm.authorize();
+                                        } else {
+                                            await authenticate({
+                                                provider: connectorId,
+                                                signingMessage: "Login to BNM",
+                                            });
+                                        }
                                         window.localStorage.setItem(
                                             "connectorId",
                                             connectorId
@@ -121,6 +171,19 @@ function Account() {
                         ))}
                     </div>
                 </Modal>
+            </>
+        );
+    }
+    if(xummAddress != ''){
+        return (
+            <>
+                <div
+                    style={styles.account}
+                    // onClick={() => authenticate({ signingMessage: "Hello World!" })}
+                    onClick={() => {console.log("xumm disconnect"); alert('Xumm Disonnected'); setXummAddress(''); xumm.logout();}}
+                >
+                    <p style={styles.text}>{getEllipsisTxt(xummAddress, 6)}</p>
+                </div>
             </>
         );
     }
@@ -161,7 +224,7 @@ function Account() {
                     />
                     <div style={{ marginTop: "10px", padding: "0 10px" }}>
                         <a
-                            href={`https://polygonscan.com/address/${account}`} 
+                            href={`https://polygonscan.com/address/${account}`}
                             target="_blank"
                             rel="noreferrer"
                         >

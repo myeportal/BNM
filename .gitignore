@@ -4,14 +4,12 @@ node_modules
 .next
 .env.local
 contracts/build.env
-.env
 .yarn
 .history
 
 
 
 node_modules
-.env
 coverage
 coverage.json
 typechain
@@ -23,7 +21,6 @@ artifacts
 
 
 node_modules
-.env
 coverage
 coverage.json
 typechain
