@@ -41,7 +41,7 @@ contract BlockNewsMediaToken is
 
     /// @dev address to receive all royalty payments
     address private constant ROYALTIES_RECEIVER =
-        0x45b58919A70BFdA15d4bb0A8df752A671a318d7E;
+        0x006bf71a17584635a5407f6f32f1694ae4328def;
 
     Counters.Counter private _tokenIds;
     RoyaltyInfo private _royalties;
