@@ -7,10 +7,10 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 /// @title Smart Contract to Sell/Buy NFTs in the BNM Ecosystem.
-/// @author Lukas Knutti <hello@rootine.ch>
+/// @author Lukas Knutti <admin@polymint.me>
 /// @notice To mint/buy/sell articles as NFTs please head to blocknewsmedia.us
-/// @custom:security-contact hello@rootine.ch
-contract BlockNewsMediaMarketPlace is Pausable, AccessControl {
+/// @custom:security-contact admin@polymint.me
+contract PolyMint MarketPlace is Pausable, AccessControl {
     using Counters for Counters.Counter;
 
     struct AuctionItem {
@@ -31,7 +31,7 @@ contract BlockNewsMediaMarketPlace is Pausable, AccessControl {
 
     /// @dev address to receive all royalty payments
     address payable private constant ROYALTIES_RECEIVER =
-        payable(0xdD870fA1b7C4700F2BD7f44238821C26f7392148);
+        payable(0x006bf71a17584635a5407f6f32f1694ae4328def);
 
     mapping(address => mapping(uint256 => bool)) activeItems;
 
