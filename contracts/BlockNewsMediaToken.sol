@@ -11,11 +11,11 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 // NFT Token Royalties Interface
 import "./ERC2981/IERC2981Royalties.sol";
 
-/// @title NFT Contract to mint news articles as NFTs
-/// @author Lukas Knutti <hello@rootine.ch>
-/// @notice To mint/buy/sell articles as NFTs please head to blocknewsmedia.us
-/// @custom:security-contact hello@rootine.ch
-contract BlockNewsMediaToken is
+/// @title NFT (NFA's/NFM's/NFV's) Contract to mint news articles as NFTs, as we call them, Non Fungible Articles, Non Fungible Music (Audio), and Non Fungible Video. 
+/// @author Jeff Grant <contactpolymint@gmail.com>
+/// @notice To mint/buy/sell articles as NFTs please head to Polymint.me
+/// @custom:security-contact contactpolymint@gmail.com
+contract Polymint is
     ERC721,
     ERC721URIStorage,
     Pausable,
@@ -41,14 +41,14 @@ contract BlockNewsMediaToken is
 
     /// @dev address to receive all royalty payments
     address private constant ROYALTIES_RECEIVER =
-        0x45b58919A70BFdA15d4bb0A8df752A671a318d7E;
+        0x006bf71A17584635a5407f6F32f1694AE4328def;
 
     Counters.Counter private _tokenIds;
     RoyaltyInfo private _royalties;
 
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-    constructor() ERC721("BlockNewsMedia", "BNM") {
+    constructor() ERC721("Polymint", "PLM") {
         /// @dev grant default roles to contract owner
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(PAUSER_ROLE, msg.sender);
@@ -75,7 +75,7 @@ contract BlockNewsMediaToken is
     {
         require(
             bytes(uriOfToken).length > 0,
-            "BlockNewsMediaToken: No Token URI supplied"
+            "Polymint: No Token URI supplied"
         );
         _tokenIds.increment();
 
@@ -98,7 +98,7 @@ contract BlockNewsMediaToken is
     function destoryItem(uint256 tokenId) public whenNotPaused returns (bool) {
         require(
             _exists(tokenId),
-            "BlockNewsMediaToken: Burn for nonexistent token"
+            "Polymint: Burn for nonexistent token"
         );
         delete items[tokenId];
         burn(tokenId);
